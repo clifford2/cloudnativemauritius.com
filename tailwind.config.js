@@ -5,8 +5,7 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ["Raleway", ...defaultTheme.fontFamily.sans],
-                mono: ["Source Code Pro", ...defaultTheme.fontFamily.mono],
+                sans: ["Poppins", ...defaultTheme.fontFamily.sans],
             },
         },
     },
