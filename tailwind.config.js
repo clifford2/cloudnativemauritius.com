@@ -1,18 +1,14 @@
 /** @type {import('tailwindcss').Config} */
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require("tailwindcss/defaultTheme");
 export default {
-    content: [
-      "./resources/**/*.blade.php",
-      "./resources/**/*.js",
-  ],
-  theme: {
-      extend: {
-        fontFamily: {
-        'sans': ['Poppins', ...defaultTheme.fontFamily.sans],
-      },
+    content: ["./resources/**/*.blade.php", "./resources/**/*.js"],
+    theme: {
+        extend: {
+            fontFamily: {
+                sans: ["Raleway", ...defaultTheme.fontFamily.sans],
+                mono: ["Source Code Pro", ...defaultTheme.fontFamily.mono],
+            },
+        },
     },
-  },
-    plugins: [
-      require('@tailwindcss/typography')
-  ],
-}
+    plugins: [require("@tailwindcss/typography")],
+};

@@ -10,9 +10,10 @@
 
 Clone the repository and ensure the followings are installed:
 
-- PHP Composer
-- NPM
-- SQLite
+-   PHP 8.2/8.3
+-   PHP Composer
+-   NPM
+-   SQLite
 
 ## Install Dependencies
 
@@ -53,7 +54,7 @@ Clone the repository and ensure the followings are installed:
 1. Run the migration command
 
     ```bash
-    php artisan migrate --seed 
+    php artisan migrate --seed
     # if already setup, run
     php artisan migrate:fresh --seed # This will clear the database with new data
     ```
