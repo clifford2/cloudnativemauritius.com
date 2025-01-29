@@ -48,7 +48,12 @@ class DatabaseSeeder extends Seeder
             'start_date' => now()->addDays(30),
         ]);
 
-        Page::factory(10)
+        Page::factory(3)
+            ->sequence(
+                ['slug' => 'our-chapter'],
+                ['slug' => 'our-sponsors'],
+                ['slug' => 'cncf'],
+            )
             ->create();
     }
 }

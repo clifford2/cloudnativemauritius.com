@@ -43,7 +43,7 @@ class EventResource extends Resource
                 TextInput::make('location')
                     ->label('Location')
                     ->required(),
-                TextInput::make('google_map_url')
+                TextInput::make('google_map')
                     ->label('Google Map'),
                 MarkdownEditor::make('note')
                     ->label('Note')
