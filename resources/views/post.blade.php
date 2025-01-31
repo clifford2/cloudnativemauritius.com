@@ -6,6 +6,14 @@ use Illuminate\Support\Str;
 
 @section('content')
 <section class="mt-8 md:mt-10 md:max-w-4xl mx-auto px-4 md:px-8 lg:px-0">
+  <div class="mb-6">
+    <a href="{{ route('blog') }}" class="inline-flex items-center font-semibold text-lg text-gray-800 hover:text-primary">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+      Back to Blog Posts
+    </a>
+  </div>
   <div class="bg-white rounded-md p-4 md:p-6 border-2 border-r-4 border-b-4 border-gray-800">
     <div class="mb-2 md:mb-3">
       @foreach ($post->categories as $category)
