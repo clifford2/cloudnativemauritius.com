@@ -108,3 +108,17 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT). -->
+
+## Testing on mobile
+
+Set `VITE_HMR_HOST` to the local IP address of your machine. You'll also have to update the `APP_URL`
+
+To quickly get the ip, run `npm run dev -- --host` and you'll see something like Network: http://x.x.x.x
+
+```bash
+VITE_HMR_HOST=192.168.100.200
+```
+
+Run `php artisan serve --port 8000 --host 192.168.100.200` and `npm run dev -- --host`
+
+In this case, if your phone is connected to the same network, you should be able to access the site on your phone on `192.168.100.200:8000`
