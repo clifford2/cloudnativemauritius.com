@@ -1,10 +1,12 @@
 @php
 use Illuminate\Support\Str;
+use Spatie\CommonMarkShikiHighlighter\HighlightCodeExtension;
 @endphp
 
 @extends('layouts.main')
 
 @section('content')
+
 <section class="mt-8 md:mt-10 md:max-w-4xl mx-auto px-4 md:px-8 lg:px-0">
   <div class="mb-6">
     <a href="{{ route('blog') }}" class="inline-flex items-center font-semibold text-lg text-gray-800 hover:text-primary">
@@ -41,7 +43,7 @@ use Illuminate\Support\Str;
       @endforeach
     </div>
     <div class="prose max-w-full mt-8">
-      <div>{{ \Illuminate\Mail\Markdown::parse($post->content) }}</div>
+      <div>{!! Str::markdown($post->content, [], [new HighlightCodeExtension(theme: 'github-dark')]) !!}</div>
     </div>
   </div>
 </section>

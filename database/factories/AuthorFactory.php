@@ -24,7 +24,7 @@ class AuthorFactory extends Factory
             'name' =>  $this->faker->name(),
             'email' => $this->faker->safeEmail(),
             'bio' => $this->faker->text(),
-            'photo' =>  "pineapple.jpg",
+            'photo' =>  "cage.png",
             'slug' => $this->faker->slug(),
         ];
     }
