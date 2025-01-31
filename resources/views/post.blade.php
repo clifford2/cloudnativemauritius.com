@@ -5,27 +5,28 @@ use Illuminate\Support\Str;
 @extends('layouts.main')
 
 @section('content')
-<section class="mt-6 md:mt-8 max-w-80 md:max-w-4xl mx-auto">
-  <div class="mt-4 bg-white rounded-md p-4 outline">
-    <div class="mb-2 ml-2">
+<section class="mt-8 md:mt-10 md:max-w-4xl mx-auto px-4 md:px-8 lg:px-0">
+  <div class="bg-white rounded-md p-4 md:p-6 border-2 border-r-4 border-b-4 border-gray-800">
+    <div class="mb-2 md:mb-3">
       @foreach ($post->categories as $category)
-      <span class="px-3 py-1 rounded-full bg-gray-800 text-white text-[11px] font-bold uppercase">{{ $category->name }}</span>
+      <span class="px-3 py-1 rounded-md bg-gray-200 text-xs font-medium uppercase text-gray-800">{{ $category->name }}</span>
       @endforeach
     </div>
-    <h2 class="mt-1 mb-1 ml-2 text-2xl font-bold">{{ $post->title }}</h2>
-    <p class="mt-1 mb-6 ml-2 text-xs font-light">{{ \Carbon\Carbon::parse($post->created_at)->format('d M Y') }}</p>
-    <div class="mb-2">
+    <h2 class="mb-2 text-2xl md:text-3xl font-bold">{{ $post->title }}</h2>
+    <p class="mb-4 text-xs font-normal">{{ \Carbon\Carbon::parse($post->created_at)->format('d M Y') }}</p>
+
+    <div class="grid {{ $post->authors->count() > 1 ? 'md:grid-cols-2' : ''}} gap-6 md:gap-8">
       @foreach ($post->authors as $author)
-      <div class="flex gap-2 items-center">
-        <img class="size-16 rounded-full shadow-md" src="{{ asset('storage/'.$author->photo) }}" />
-        <div class="flex flex-col gap-2">
-          <p class="text-sm uppercase font-semibold">By {{ $author->name }}</p>
+      <div class="flex gap-4 items-center">
+        <img class="size-12 rounded-full shadow-md" src="{{ asset('storage/'.$author->photo) }}" />
+        <div class="grid gap-2 grid-rows-[auto_1fr_auto] h-full">
+          <p class="text-sm uppercase font-medium">By {{ $author->name }}</p>
           @if($author->bio)
-          <p class="text-xs font-normal text-wrap">{{ $author->bio }}</p>
+          <p class="text-xs text-wrap">{{ $author->bio }}</p>
           @endif
 
           @if($author->socialMedias->count())
-          <x-socials class="mt-2" :socials="$author->socialMedias" />
+          <x-socials :socials="$author->socialMedias" />
           @endif
         </div>
       </div>

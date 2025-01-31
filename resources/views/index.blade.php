@@ -1,10 +1,11 @@
 @extends('layouts.main')
 
 @section('content')
-<section class="mt-6 md:mt-8 md:max-w-4xl mx-auto px-8 lg:px-0">
+<section class="mt-6 md:mt-8 md:max-w-4xl mx-auto px-4 md:px-8 lg:px-0">
 
-  <h2
-    class="before:content-[''] before:border-[10px] before:border-transparent before:border-l-gray-800 before:rounded before:mb-[2px] before:mr-1 h-10 flex items-center text-xl text-gray-800 font-bold uppercase  mb-4">
+  <h2 class="
+          before:content-[''] before:border-[10px] md:before:border-[16px] before:border-transparent before:border-l-gray-800 before:rounded before:mb-[2px] md:before:mb-[4px] before:mr-1
+          flex items-center text-xl md:text-3xl text-gray-800 font-bold uppercase mb-6 md:mt-10">
     Upcoming Event</h2>
 
   @if ($events->filter->isHappeningOrInFuture()->isNotEmpty())
@@ -15,18 +16,19 @@
 
   @foreach ($events->filter->isHappeningOrInFuture() as $event)
 
-  <div
-    class="group mb-6 overflow-hidden p-6 bg-gradient-to-l from-primary/85 to-primary flex items-center justify-between focus-visible:ring-2 rounded-md border-2 border-r-4 border-b-4 border-gray-800 md:hover:scale-[1.02] transition ease-in-out duration-200 relative">
+  <div class="mb-6 overflow-hidden p-6 bg-gradient-to-l from-primary/85 to-primary flex items-center justify-between focus-visible:ring-2 rounded-md border-2 border-r-4 border-b-4 border-gray-800 md:hover:scale-[1.02] transition ease-in-out duration-200 relative
+    before:absolute before:inset-0 before:rounded-[inherit] 
+    before:bg-[linear-gradient(45deg,transparent_25%,theme(colors.white/.5)_50%,transparent_75%,transparent_100%)] before:bg-[length:250%_250%,100%_100%] before:bg-[position:200%_0,0_0] before:bg-no-repeat 
+    before:[transition:background-position_0s_ease] hover:before:bg-[position:-100%_0,0_0] hover:before:duration-[1000ms]
+    [&:not(:hover)]:before:duration-[1000ms]">
     <a href="{{ $event->cncf_url }}" target="_blank" class="absolute inset-0 z-10"></a>
-    <div
-      class="absolute top-0 inset-[125%] h-full w-1/3 z-5 block transform -skew-x-12 bg-gradient-to-r from-white from-3% to-transparent opacity-40 group-hover:animate-shine">
-    </div>
+
 
     <div class='flex w-full items-center md:items-stretch gap-4'>
       <div class="flex-grow flex flex-col justify-between gap-2">
         <div>
-          <span class="px-3 py-1 rounded-md bg-gray-100 text-xs font-medium uppercase">{{ $event->type }}</span>
-          <div class="mt-2 text-white md:text-xl lg:text-2xl font-semibold">{{ $event->title }}</div>
+          <span class="px-3 py-1 rounded-md bg-white text-xs font-medium uppercase">{{ $event->type }}</span>
+          <div class="mt-2 text-white text-lg md:text-2xl font-semibold">{{ $event->title }}</div>
         </div>
         <div class="flex md:items-center text-white flex-col md:flex-row gap-1 md:gap-4">
           <div class="flex items-center">
@@ -51,15 +53,16 @@
           @endif
         </div>
       </div>
-      <div class="bg-accent rounded-md p-3 md:p-4 border-[3px] border-gray-800 lg:h-[130px] lg:w-[130px]">
-        <div class="text-[16px] text-center font-semibold uppercase text-white hidden md:block">
+      <div
+        class="bg-accent rounded-md  flex-shrink-0 flex flex-col justify-center items-center border-[3px] border-gray-800 h-[90px] md:h-[130px] w-[80px] md:w-[140px]">
+        <div class="text-[18px] text-center font-semibold uppercase text-white hidden md:block leading-none pt-1">
           {{ $event->start_date->format('F') }}
         </div>
-        <div class="text-2xl text-center font-medium uppercase text-white block md:hidden">
+        <div class="text-xl text-center font-medium uppercase text-white block md:hidden leading-none pt-1">
           {{ $event->start_date->format('M') }}
         </div>
         <div class="grid place-items-center">
-          <div class="text-5xl md:text-7xl text-white font-mono tracking-tighter">
+          <div class="text-4xl md:text-7xl text-white font-mono font-semibold tracking-tighter leading-none">
             {{ $event->start_date->format('d') }}
           </div>
         </div>
@@ -70,21 +73,21 @@
   </div>
   @endforeach
 
-  <h2
-    class="before:content-[''] before:border-[10px] before:border-transparent before:border-l-gray-800 before:rounded before:mb-[2px] before:mr-1 h-10 flex items-center text-xl text-gray-800 font-bold uppercase mt-8 mb-4">
+  <h2 class="before:content-[''] before:border-[10px] md:before:border-[16px] before:border-transparent before:border-l-gray-800 before:rounded before:mb-[2px] md:before:mb-[4px] before:mr-1
+          flex items-center text-xl md:text-3xl text-gray-800 font-bold uppercase mb-6 mt-8 md:mt-10">
     Past Events</h2>
 
   @foreach ($events->filter->isPast() as $event)
 
   <div
-    class="mb-6 overflow-hidden p-6 bg-white flex items-center justify-between focus-visible:ring-2 rounded-md border-2 border-r-4 border-b-4 border-gray-800 md:hover:scale-[1.02] transition ease-in-out duration-200 relative">
+    class="mb-6 p-6 bg-white flex items-center justify-between focus-visible:ring-2 rounded-md border-2 border-r-4 border-b-4 border-gray-800 md:hover:scale-[1.02] transition ease-in-out duration-200 relative">
     <a href="{{ $event->cncf_url }}" target="_blank" class="absolute inset-0 z-10"></a>
 
     <div class='flex w-full items-center md:items-stretch gap-4'>
       <div class="flex-grow flex flex-col self-stretch justify-between text-gray-800 gap-2">
         <div>
           <span class="px-3 py-1 rounded-md bg-gray-800 text-xs font-medium uppercase text-white">{{ $event->type }}</span>
-          <div class="mt-2 md:text-xl lg:text-2xl font-semibold">{{ $event->title }}</div>
+          <div class="mt-2 text-lg md:text-2xl font-semibold">{{ $event->title }}</div>
         </div>
         <div class="flex md:items-center flex-col md:flex-row gap-1 md:gap-4">
           <div class="flex items-center">
@@ -98,15 +101,16 @@
           </div>
         </div>
       </div>
-      <div class="bg-gradient-to-l from-primary/85 to-primary rounded-md p-3 md:p-4 border-2 border-gray-800 lg:h-[130px] lg:w-[130px]">
-        <div class="text-[16px] text-center font-semibold uppercase text-white hidden md:block">
+      <div
+        class="bg-gradient-to-l from-primary/85 to-primary rounded-md  flex-shrink-0 flex flex-col justify-center items-center border-[3px] border-gray-800 h-[90px] md:h-[130px] w-[80px] md:w-[140px]">
+        <div class="text-[18px] text-center font-semibold uppercase text-white hidden md:block leading-none pt-1">
           {{ $event->start_date->format('F') }}
         </div>
-        <div class="text-2xl text-center font-medium uppercase text-white block md:hidden">
+        <div class="text-xl text-center font-medium uppercase text-white block md:hidden leading-none pt-1">
           {{ $event->start_date->format('M') }}
         </div>
         <div class="grid place-items-center">
-          <div class="text-5xl md:text-7xl text-white font-mono tracking-tighter">
+          <div class="text-4xl md:text-7xl text-white font-mono font-semibold tracking-tighter leading-none">
             {{ $event->start_date->format('d') }}
           </div>
         </div>

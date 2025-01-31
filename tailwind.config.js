@@ -15,7 +15,7 @@ export default {
 
             fontFamily: {
                 sans: ["Poppins", ...defaultTheme.fontFamily.sans],
-                mono: ["Source Code Pro", ...defaultTheme.fontFamily.mono],
+                mono: ["Cutive Mono", ...defaultTheme.fontFamily.mono],
             },
 
             animation: {

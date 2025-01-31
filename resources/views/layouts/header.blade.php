@@ -2,7 +2,7 @@
 <div class="md:mt-8 lg:mt-16">
   <!-- Mobile Navigation -->
   <div class="md:hidden">
-    <div class="flex justify-between items-center py-4 px-8 bg-primary">
+    <div class="flex justify-between items-center p-4 bg-primary">
       <a href="{{ route('home') }}" class="flex items-center gap-3">
         <img src="/images/cloud-native-community-groups.svg" alt="Cloud Native Mauritius" class="h-16 w-16 rounded-sm" />
         <div class="font-medium uppercase text-gray-50">
@@ -20,7 +20,7 @@
 
     <div id="mobile-menu" class="fixed inset-0 bg-gray-900 bg-opacity-95 z-50 hidden">
       <div class="flex flex-col items-center justify-center h-full">
-        <button for="mobile-menu-checkbox" id="close-menu" class="absolute top-10 right-8 text-white">
+        <button for="mobile-menu-checkbox" id="close-menu" class="absolute top-10 right-4 text-white">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
