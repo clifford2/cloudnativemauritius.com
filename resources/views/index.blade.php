@@ -8,7 +8,7 @@
           flex items-center text-xl md:text-3xl text-gray-800 font-bold uppercase mb-6 md:mt-10">
     Upcoming Event</h2>
 
-  @if ($events->filter->isHappeningOrInFuture()->isNotEmpty())
+  @if ($events->filter->isHappeningOrInFuture()->isEmpty())
   <div class="mt-4 mb-4 p-6 bg-white rounded-md border-2 border-r-4 border-b-4 border-gray-800">
     <p class="text-gray-800 text-lg font-medium text-center">No upcoming events at the moment. Stay tuned!</p>
   </div>
