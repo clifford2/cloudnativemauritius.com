@@ -40,20 +40,20 @@ class DatabaseSeeder extends Seeder
                 'is_published' => true,
             ]);
 
-            Post::factory(2)
-                ->has(Author::factory()->count(2)
-                    ->has(SocialMedia::factory()
-                        ->sequence(
-                            ['platform' => SocialMediaPlatform::X],
-                            ['platform' => SocialMediaPlatform::FACEBOOK],
-                            ['platform' => SocialMediaPlatform::LINKEDIN]
-                        )
-                        ->count(3), 'socialMedias')
-                )
-                ->has(Category::factory())
-                ->create([
-                    'is_published' => true,
-                ]);
+        Post::factory(2)
+            ->has(Author::factory()->count(2)
+                ->has(SocialMedia::factory()
+                    ->sequence(
+                        ['platform' => SocialMediaPlatform::X],
+                        ['platform' => SocialMediaPlatform::FACEBOOK],
+                        ['platform' => SocialMediaPlatform::LINKEDIN]
+                    )
+                    ->count(3), 'socialMedias')
+            )
+            ->has(Category::factory())
+            ->create([
+                'is_published' => true,
+            ]);
 
         Event::factory(10)
             ->create();
