@@ -14,11 +14,11 @@
   </div>
   @endif
 
-  @foreach ($events->filter->isHappeningOrInFuture() as $event)
+  @foreach ($events->filter->isHappeningOrInFuture()->reverse() as $event)
 
   <div class="mb-6 overflow-hidden p-6 bg-gradient-to-l from-primary/85 to-primary flex items-center justify-between focus-visible:ring-2 rounded-md border-2 border-r-4 border-b-4 border-gray-800 md:hover:scale-[1.02] transition ease-in-out duration-200 relative
-    before:absolute before:inset-0 before:rounded-[inherit] 
-    before:bg-[linear-gradient(45deg,transparent_25%,theme(colors.white/.5)_50%,transparent_75%,transparent_100%)] before:bg-[length:250%_250%,100%_100%] before:bg-[position:200%_0,0_0] before:bg-no-repeat 
+    before:absolute before:inset-0 before:rounded-[inherit]
+    before:bg-[linear-gradient(45deg,transparent_25%,theme(colors.white/.5)_50%,transparent_75%,transparent_100%)] before:bg-[length:250%_250%,100%_100%] before:bg-[position:200%_0,0_0] before:bg-no-repeat
     before:[transition:background-position_0s_ease] hover:before:bg-[position:-100%_0,0_0] hover:before:duration-[1000ms]
     [&:not(:hover)]:before:duration-[1000ms]">
     <a href="{{ $event->cncf_url }}" target="_blank" class="absolute inset-0 z-10"></a>
