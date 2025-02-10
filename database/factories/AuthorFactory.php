@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Author;
-use Faker\Factory as FakerFactory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AuthorFactory extends Factory
@@ -21,10 +20,10 @@ class AuthorFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' =>  $this->faker->name(),
+            'name' => $this->faker->name(),
             'email' => $this->faker->safeEmail(),
             'bio' => $this->faker->text(),
-            'photo' =>  "cage.png",
+            'photo' => 'cage.png',
             'slug' => $this->faker->slug(),
         ];
     }
