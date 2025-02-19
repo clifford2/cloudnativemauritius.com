@@ -26,6 +26,6 @@ class CFPController extends Controller
             'description' => $request->description,
         ]);
 
-        return redirect()->route('home')->with('success', 'Paper submitted, thank you!');
+        return redirect()->route('cfps.completed')->with('success', 'Paper submitted, thank you!');
     }
 }
