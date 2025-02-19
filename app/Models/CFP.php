@@ -13,6 +13,7 @@ class CFP extends Model
         'description',
         'name',
         'phone',
-        'email'
+        'email',
+        'approved',
     ];
 }

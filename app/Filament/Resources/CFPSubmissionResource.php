@@ -13,8 +13,11 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\CheckboxColumn;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\Textarea;
+use Filament\Tables\Filters\Filter;
 
 
 class CFPSubmissionResource extends Resource
@@ -42,6 +45,8 @@ class CFPSubmissionResource extends Resource
                 Textarea::make('description')
                     ->label('Description')
                     ->required(),
+                Checkbox::make('approved')
+                    ->label('Approved'),
             ]);
     }
 
@@ -55,11 +60,17 @@ class CFPSubmissionResource extends Resource
                     ->label('name'),
                 TextColumn::make('email')
                     ->label('Email'),
+                CheckboxColumn::make('approved')
+                    ->label('Approved')
             ])
             ->filters([
-                //
+                Filter::make('Only Not Approved')
+                    ->query(fn (Builder $query): Builder => $query->where('approved', false)),
+                Filter::make('Only Approved')
+                    ->query(fn (Builder $query): Builder => $query->where('approved', true)),
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
