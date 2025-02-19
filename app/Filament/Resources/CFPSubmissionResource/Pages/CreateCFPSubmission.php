@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\CFPSubmissionResource\Pages;
 
 use App\Filament\Resources\CFPSubmissionResource;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateCFPSubmission extends CreateRecord
