@@ -12,6 +12,9 @@ Route::withoutSession()->group(function () {
 
     Route::get('/submit', [CFPController::class, 'create'])->name('cfps.create');
     Route::post('/cfps', [CFPController::class, 'store'])->name('cfps.store');
+    Route::get('/completed', function(){
+        return view("completed");
+    })->name('cfps.completed');
 
     Route::get('/blog', BlogController::class)->name('blog');
 
